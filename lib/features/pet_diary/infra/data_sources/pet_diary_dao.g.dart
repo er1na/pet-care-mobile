@@ -1,0 +1,9 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'pet_diary_dao.dart';
+
+// ignore_for_file: type=lint
+mixin _$PetDiaryDaoMixin on DatabaseAccessor<AppDatabase> {
+  $PetsTable get pets => attachedDatabase.pets;
+  $PetDiariesTable get petDiaries => attachedDatabase.petDiaries;
+}
