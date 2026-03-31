@@ -15,6 +15,7 @@ import 'package:pet_care_mobile/features/medicine_history/application/medicine_h
 import 'package:pet_care_mobile/features/pet_diary/application/pet_diary_controller.dart';
 import 'package:pet_care_mobile/ui/screens/hospital_management_screen.dart';
 import 'package:pet_care_mobile/ui/screens/vaccine_management_screen.dart';
+import 'package:pet_care_mobile/ui/screens/medicine_management_screen.dart';
 
 /// 設定画面
 class SettingsScreen extends ConsumerWidget {
@@ -28,7 +29,7 @@ class SettingsScreen extends ConsumerWidget {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            Theme.of(context).colorScheme.primaryContainer.withOpacity(0.3),
+            Theme.of(context).colorScheme.primaryContainer.withValues(alpha: 0.3),
             Colors.white,
           ],
         ),
@@ -86,7 +87,6 @@ class SettingsScreen extends ConsumerWidget {
                 title: '病院管理',
                 icon: Icons.local_hospital_rounded,
                 onTap: () {
-                  // TODO: 病院管理画面に遷移
                   Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => const HospitalManagementScreen(),
                   ));
@@ -97,7 +97,6 @@ class SettingsScreen extends ConsumerWidget {
                 title: 'ワクチン管理',
                 icon: Icons.vaccines_rounded,
                 onTap: () {
-                  // TODO: ワクチン管理画面に遷移
                   Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => const VaccineManagementScreen(),
                   ));
@@ -108,8 +107,9 @@ class SettingsScreen extends ConsumerWidget {
                 title: '薬管理',
                 icon: Icons.medication_rounded,
                 onTap: () {
-                  // TODO: 薬管理画面に遷移
-                  Navigator.of(context).pushNamed('/medicine_management');
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const MedicineManagementScreen(),
+                  ));
                 },
               ),
               const Divider(),
@@ -450,7 +450,7 @@ class SettingsScreen extends ConsumerWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -492,7 +492,7 @@ class SettingsScreen extends ConsumerWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
