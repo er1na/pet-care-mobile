@@ -14,6 +14,7 @@ import 'package:pet_care_mobile/features/vaccine_history/application/vaccine_his
 import 'package:pet_care_mobile/features/medicine_history/application/medicine_history_controller.dart';
 import 'package:pet_care_mobile/features/pet_diary/application/pet_diary_controller.dart';
 import 'package:pet_care_mobile/ui/screens/hospital_management_screen.dart';
+import 'package:pet_care_mobile/ui/screens/vaccine_management_screen.dart';
 
 /// 設定画面
 class SettingsScreen extends ConsumerWidget {
@@ -97,7 +98,9 @@ class SettingsScreen extends ConsumerWidget {
                 icon: Icons.vaccines_rounded,
                 onTap: () {
                   // TODO: ワクチン管理画面に遷移
-                  Navigator.of(context).pushNamed('/vaccine_management');
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const VaccineManagementScreen(),
+                  ));
                 },
               ),
               _buildTile(
