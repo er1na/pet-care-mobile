@@ -1,17 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pet_care_mobile/features/vaccines/domain/vaccine.dart';
 import 'package:pet_care_mobile/features/vaccines/domain/vaccine_repository.dart';
-
-final vaccineRepoProvider = Provider<VaccineRepository>((ref) {
-  throw UnimplementedError('Provide VaccineRepository via VaccineRepoProvider');
-});
+import 'package:pet_care_mobile/features/vaccines/infra/providers/vaccine_repo_provider.dart';
 
 class VaccineController extends AsyncNotifier<List<Vaccine>> {
   late final VaccineRepository _repo;
 
   @override
   Future<List<Vaccine>> build() async {
-    _repo = ref.read(vaccineRepoProvider);
+    _repo = ref.read(vaccineRepositoryProvider);
     return _repo.list();
   }
 
