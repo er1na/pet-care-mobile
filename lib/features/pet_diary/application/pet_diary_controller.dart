@@ -1,17 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pet_care_mobile/features/pet_diary/domain/pet_diary.dart';
 import 'package:pet_care_mobile/features/pet_diary/domain/pet_diary_repository.dart';
-
-final petDiaryRepoProvider = Provider<PetDiaryRepository>((ref) {
-  throw UnimplementedError('Provide PetDiaryRepository via PetDiaryRepoProvider');
-});
+import 'package:pet_care_mobile/features/pet_diary/infra/providers/pet_diary_repo_provider.dart';
 
 class PetDiaryController extends AsyncNotifier<List<PetDiary>> {
   late final PetDiaryRepository _repo;
 
   @override
   Future<List<PetDiary>> build() async {
-    _repo = ref.read(petDiaryRepoProvider);
+    _repo = ref.read(petDiaryRepositoryProvider);
     return _repo.list();
   }
 
