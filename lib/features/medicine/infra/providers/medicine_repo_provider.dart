@@ -10,7 +10,7 @@ final medicineDaoProvider = Provider<MedicineDao>((ref) {
 });
 
 /// Repository（UIは基本ここ経由）
-final petRepositoryProvider = Provider<MedicineRepository>((ref) {
+final medicineRepositoryProvider = Provider<MedicineRepository>((ref) {
   final dao = ref.read(medicineDaoProvider);
   return MedicineRepositoryImpl(dao);
 });
