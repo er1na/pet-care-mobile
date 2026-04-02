@@ -1,17 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pet_care_mobile/features/pets/domain/pet.dart';
 import 'package:pet_care_mobile/features/pets/domain/pet_repository.dart';
-
-final petRepoProvider = Provider<PetRepository>((ref) {
-  throw UnimplementedError('Provide PetRepository via petRepoProvider');
-});
+import 'package:pet_care_mobile/features/pets/infra/providers/pet_repo_provider.dart';
 
 class PetsController extends AsyncNotifier<List<Pet>> {
   late final PetRepository _repo;
 
   @override
   Future<List<Pet>> build() async {
-    _repo = ref.read(petRepoProvider);
+    _repo = ref.read(petRepositoryProvider);
     return _repo.list();
   }
 
