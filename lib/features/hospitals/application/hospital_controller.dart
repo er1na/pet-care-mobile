@@ -1,17 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pet_care_mobile/features/hospitals/domain/hospital.dart';
 import 'package:pet_care_mobile/features/hospitals/domain/hospital_repository.dart';
-
-final hospitalRepoProvider = Provider<HospitalRepository>((ref) {
-  throw UnimplementedError('Provide HospitalRepository via HospitalRepoProvider');
-});
+import 'package:pet_care_mobile/features/hospitals/infra/providers/hospital_repo_provider.dart';
 
 class HospitalController extends AsyncNotifier<List<Hospital>> {
   late final HospitalRepository _repo;
 
   @override
   Future<List<Hospital>> build() async {
-    _repo = ref.read(hospitalRepoProvider);
+    _repo = ref.read(hospitalRepositoryProvider);
     return _repo.list();
   }
 
